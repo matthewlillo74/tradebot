@@ -309,5 +309,6 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Cycle error: {e}")
         print("Waiting 1 minutes before next chunk scan...")
-        time.sleep(60)  # 1 minutes
+        time.sleep(120)  # 1 minutes
+
 
