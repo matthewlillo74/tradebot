@@ -1,0 +1,41 @@
+# 🚀 Alpaca Momentum Trading Bot
+
+This project is an **automated stock trading bot** that uses **momentum-based strategies** to identify intraday movers and execute trades via the **Alpaca Paper Trading API**.
+
+The bot continuously scans the market for strong gainers, applies **technical indicators** (VWAP, RSI, 10-bar breakout), and places **buy/sell orders** when conditions are met. It also manages risk with **cooldown periods** and **partial/full sell rules**.
+
+---
+
+## ✅ Features
+- **Momentum Scanning**:
+  - Intraday gainers filter (`MIN_INTRADAY_GAIN`).
+  - 5-minute breakout check (`MIN_5MIN_GAIN`).
+- **Technical Indicators**:
+  - VWAP (price must be above VWAP to buy).
+  - RSI (avoid overbought conditions).
+  - 10-bar high breakout.
+- **Order Execution**:
+  - Market buy orders with position sizing (`MAX_POSITION_PER_TRADE`).
+  - Partial sell on profit with high RSI.
+  - Full sell on stop loss or trailing stop.
+- **Rate Limit Handling**:
+  - Exponential backoff for API calls.
+- **Universe Management**:
+  - Rotates through chunks of tickers for efficiency.
+- **Risk Controls**:
+  - Cooldown period for recently traded tickers.
+
+---
+
+## 🏗 Architecture
+- **Language**: Python 3.x
+- **Broker API**: [Alpaca Trade API](https://alpaca.markets/)
+- **Libraries**:
+  - `alpaca-trade-api`
+  - `pandas`
+  - `ta` (technical analysis)
+- **Execution Mode**: Paper Trading (safe for testing)
+
+---
+
+## 📂 Project Structure
